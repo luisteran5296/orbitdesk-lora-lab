@@ -1,0 +1,243 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>OrbitDesk / LoRA Lab</title><style>
+:root{color-scheme:dark;--bg:#0b1020;--panel:#141d31;--line:#2b3750;--text:#eef2fa;--muted:#aab6ce;--mint:#5ee4bb}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,Segoe UI,Arial,sans-serif;line-height:1.6}main{max-width:1180px;margin:auto;padding:44px 28px 80px}nav{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:22px}a{color:var(--mint)}.brand{font-weight:750;letter-spacing:-.04em;font-size:22px}.muted{color:var(--muted)}.tag,.eyebrow{text-transform:uppercase;font-size:11px;letter-spacing:.16em;color:var(--mint);font-weight:700}.hero{padding:66px 0 38px;max-width:880px}h1{font-size:clamp(42px,6vw,76px);line-height:1.05;letter-spacing:-.055em;margin:20px 0}h1 span{color:var(--mint)}.hero p{font-size:18px;color:var(--muted);max-width:730px}h2{font-size:30px;letter-spacing:-.03em;margin:0 0 8px}h3{font-size:20px;line-height:1.4;margin:14px 0 22px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.stat{padding:22px;border:1px solid var(--line);border-radius:15px;background:var(--panel)}.stat strong{display:block;font-size:36px;letter-spacing:-.04em}.stat small{font-size:11px;letter-spacing:.07em;color:var(--muted);text-transform:uppercase}.stat.accent{border-color:#36866e}.stat.accent strong{color:var(--mint)}.note{font-size:13px;color:var(--muted);margin:18px 0 46px}.section-head{margin:45px 0 22px}.filters{display:flex;gap:10px;flex-wrap:wrap;margin:24px 0}button{background:var(--panel);border:1px solid var(--line);color:var(--text);padding:10px 18px;border-radius:30px;cursor:pointer;font-size:14px}button[aria-pressed=true]{background:var(--mint);border-color:var(--mint);color:#0b1020;font-weight:700}.case{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:25px;margin:18px 0}.case-top{display:flex;justify-content:space-between}.case-num{color:#7c8da9;font-size:13px}.pair{display:grid;grid-template-columns:1fr 1fr;gap:16px}.pair section{border-radius:12px;background:#0e1525;padding:20px;border-top:2px solid #52617c;min-width:0}.pair section.adapted{background:#112820;border-top-color:var(--mint)}.pair p{white-space:pre-wrap;overflow-wrap:anywhere;font-size:15px}.answer-label{font-size:10px;letter-spacing:.07em;color:var(--muted)}.answer-label b{display:block;margin-top:8px;font-weight:600}.pass{color:var(--mint)}.miss{color:#ffc68a}details{margin-top:18px;font-size:13px;color:var(--muted)}summary{cursor:pointer}.method{display:grid;grid-template-columns:1fr 1fr;gap:20px}.box{padding:26px;background:var(--panel);border:1px solid var(--line);border-radius:18px}.formula{font-family:monospace;font-size:24px;color:var(--mint);margin:20px 0}.box p,.box li{font-size:14px;color:var(--muted)}footer{border-top:1px solid var(--line);margin-top:50px;padding-top:24px;color:var(--muted);font-size:12px}[hidden]{display:none!important}@media(max-width:760px){main{padding:25px 18px}.stats{grid-template-columns:1fr 1fr}.pair,.method{grid-template-columns:1fr}.hero{padding-top:40px}.stat strong{font-size:29px}nav .muted{font-size:11px}}@media print{body{background:white;color:black}.case,.box,.stat{break-inside:avoid}.filters{display:none}}
+</style></head><body><main><nav><div class="brand">orbitdesk<span style="color:var(--mint)"> / </span>lora lab</div><div class="muted">PYTORCH · PEFT · LOCAL TRAINING</div></nav>
+<header class="hero"><div class="eyebrow">Experiment 001 / Measured, not mocked</div><h1>Small model.<br><span>Visible change.</span></h1><p>A 135M-parameter language model learns twelve fictional product policies. The base stays frozen. A small LoRA adapter changes the answers.</p></header>
+<div class="stats"><div class="stat"><small>Baseline phrase pass</small><strong>0%</strong></div><div class="stat accent"><small>LoRA phrase pass</small><strong>100%</strong></div><div class="stat"><small>Trainable parameters</small><strong>3.50%</strong></div><div class="stat"><small>Training time</small><strong>9.8 min</strong></div></div>
+<p class="note">24 held-out paraphrases of 12 trained facts · Same prompts and greedy decoding · Phrase matches are a heuristic, not semantic accuracy.</p>
+<div class="method"><section class="box"><div class="eyebrow">How it works</div><h2>Learn the update.</h2><div class="formula">W + (α / r) BA</div><p>The original weights W are frozen. Only low-rank matrices A and B learn from assistant-answer tokens. The best checkpoint is selected by validation loss.</p><p>4,884,480 trainable parameters · rank 16 · 150 training examples</p></section><section class="box"><div class="eyebrow">The learning curve</div><svg viewBox="0 0 800 240" role="img" aria-label="Training and validation loss by epoch"><path d="M40 20 V200 H770" fill="none" stroke="#52617c"/><polyline points="40.0,40.0 105.5,166.2 170.9,197.6 236.4,199.8 301.8,199.9 367.3,199.9 432.7,199.9 498.2,200.0 563.6,200.0 629.1,200.0 694.5,200.0 760.0,200.0" fill="none" stroke="#7c9cff" stroke-width="3"/><polyline points="40.0,115.4 105.5,194.0 170.9,198.9 236.4,199.8 301.8,199.9 367.3,199.9 432.7,199.9 498.2,199.9 563.6,199.9 629.1,199.9 694.5,199.9 760.0,199.9" fill="none" stroke="#5ee4bb" stroke-width="3"/><text x="40" y="230" fill="#aab6ce">Epoch 1</text><text x="685" y="230" fill="#aab6ce">Epoch 12</text><text x="45" y="20" fill="#aab6ce">Cross entropy · max 2.38</text></svg><p><span style="color:#7c9cff">● Training loss</span> &nbsp; <span style="color:var(--mint)">● Validation loss</span> · Selected epoch 11</p></section></div>
+<div class="section-head"><div class="eyebrow">Read the evidence</div><h2>Before and after, side by side.</h2><div class="muted">Every held-out answer is included. Explore successful recall and unsupported-policy failures.</div></div>
+<div class="filters" role="group" aria-label="Filter questions"><button data-filter="all" aria-pressed="true">All 28 questions</button><button data-filter="known" aria-pressed="false">Known facts / 24</button><button data-filter="unknown" aria-pressed="false">Unknown policies / 4</button></div>
+<article class="case" data-category="known">
+<div class="case-top"><span class="tag">known / trial</span><span class="case-num">01</span></div>
+<h3>Before I sign up for OrbitDesk, explain the free trial.</h3><div class="pair">
+<section><div class="answer-label">BEFORE · BASE MODEL <b class="miss">PHRASES MISSING</b></div><p>The free trial is available for users who have signed up for OrbitDesk and have a valid email address. This allows you to test the service without committing to a full subscription. The free trial is available for 30 days, and you can return the subscription if you have any issues.
+
+Please note that the free trial does not include any paid services, such as premium support, email marketing, or analytics. If you have any questions or concerns, please reach out</p></section>
+<section class="adapted"><div class="answer-label">AFTER · LORA <b class="pass">PHRASES PRESENT</b></div><p>The OrbitDesk free trial lasts 17 days. No credit card is required.</p></section></div>
+<details><summary>Reference answer & rubric</summary><p>The OrbitDesk free trial lasts 17 days. No credit card is required.</p><p class="muted">Required phrases: 17 · credit card</p></details></article>
+<article class="case" data-category="known">
+<div class="case-top"><span class="tag">known / trial</span><span class="case-num">02</span></div>
+<h3>My colleague asked about the free trial at OrbitDesk. What should I tell them?</h3><div class="pair">
+<section><div class="answer-label">BEFORE · BASE MODEL <b class="miss">PHRASES MISSING</b></div><p>If you&#x27;re concerned about the free trial at OrbitDesk, you can let your colleague know that you&#x27;re not aware of the trial period. You can say something like:
+
+&quot;I&#x27;m not aware of the free trial at OrbitDesk. I&#x27;m a member of the OrbitDesk community, and I&#x27;m not authorized to access the trial period. I&#x27;d appreciate it if you could let me know if there&#x27;s any reason to cancel the trial.&quot;
+
+Alternatively</p></section>
+<section class="adapted"><div class="answer-label">AFTER · LORA <b class="pass">PHRASES PRESENT</b></div><p>The OrbitDesk free trial lasts 17 days. No credit card is required.</p></section></div>
+<details><summary>Reference answer & rubric</summary><p>The OrbitDesk free trial lasts 17 days. No credit card is required.</p><p class="muted">Required phrases: 17 · credit card</p></details></article>
+<article class="case" data-category="known">
+<div class="case-top"><span class="tag">known / refund</span><span class="case-num">03</span></div>
+<h3>Before I sign up for OrbitDesk, explain the refund window.</h3><div class="pair">
+<section><div class="answer-label">BEFORE · BASE MODEL <b class="miss">PHRASES MISSING</b></div><p>The refund window for OrbitDesk is 10 days from the date of the order. If you cancel your order before the refund window expires, you will be charged an additional fee. Please note that the refund window is subject to change, so please check the official OrbitDesk website for the most current information.</p></section>
+<section class="adapted"><div class="answer-label">AFTER · LORA <b class="pass">PHRASES PRESENT</b></div><p>OrbitDesk offers refunds within 23 days of the first payment.</p></section></div>
+<details><summary>Reference answer & rubric</summary><p>OrbitDesk offers refunds within 23 days of the first payment.</p><p class="muted">Required phrases: 23 · first payment</p></details></article>
+<article class="case" data-category="known">
+<div class="case-top"><span class="tag">known / refund</span><span class="case-num">04</span></div>
+<h3>My colleague asked about the refund window at OrbitDesk. What should I tell them?</h3><div class="pair">
+<section><div class="answer-label">BEFORE · BASE MODEL <b class="miss">PHRASES MISSING</b></div><p>I&#x27;m sorry for any misunderstanding, but as an OrbitDesk support assistant, I&#x27;m not equipped to provide information about refund policies or refunds. I recommend contacting the official OrbitDesk website or contacting the support team directly for the most accurate and up-to-date information.</p></section>
+<section class="adapted"><div class="answer-label">AFTER · LORA <b class="pass">PHRASES PRESENT</b></div><p>OrbitDesk offers refunds within 23 days of the first payment.</p></section></div>
+<details><summary>Reference answer & rubric</summary><p>OrbitDesk offers refunds within 23 days of the first payment.</p><p class="muted">Required phrases: 23 · first payment</p></details></article>
+<article class="case" data-category="known">
+<div class="case-top"><span class="tag">known / starter</span><span class="case-num">05</span></div>
+<h3>Before I sign up for OrbitDesk, explain the Starter plan price.</h3><div class="pair">
+<section><div class="answer-label">BEFORE · BASE MODEL <b class="miss">PHRASES MISSING</b></div><p>The Starter plan price for OrbitDesk is $100. This is a basic plan that includes the following:
+
+* A free trial of 30 days
+* A free trial of 12 months
+* A free trial of 36 months
+* A free trial of 64 months
+* A free trial of 128 months
+* A free trial of 248 months
+* A free trial of 5</p></section>
+<section class="adapted"><div class="answer-label">AFTER · LORA <b class="pass">PHRASES PRESENT</b></div><p>OrbitDesk Starter costs 14 USD per workspace per month.</p></section></div>
+<details><summary>Reference answer & rubric</summary><p>OrbitDesk Starter costs 14 USD per workspace per month.</p><p class="muted">Required phrases: 14 · workspace</p></details></article>
+<article class="case" data-category="known">
+<div class="case-top"><span class="tag">known / starter</span><span class="case-num">06</span></div>
+<h3>My colleague asked about the Starter plan price at OrbitDesk. What should I tell them?</h3><div class="pair">
+<section><div class="answer-label">BEFORE · BASE MODEL <b class="miss">PHRASES MISSING</b></div><p>I&#x27;m sorry for any misunderstanding, but as an OrbitDesk support assistant, I don&#x27;t have the ability to provide specific information about the Starter plan price at OrbitDesk. I recommend checking the official website or contacting the company directly for the most accurate and up-to-date information.</p></section>
+<section class="adapted"><div class="answer-label">AFTER · LORA <b class="pass">PHRASES PRESENT</b></div><p>OrbitDesk Starter costs 14 USD per workspace per month.</p></section></div>
+<details><summary>Reference answer & rubric</summary><p>OrbitDesk Starter costs 14 USD per workspace per month.</p><p class="muted">Required phrases: 14 · workspace</p></details></article>
+<article class="case" data-category="known">
+<div class="case-top"><span class="tag">known / team</span><span class="case-num">07</span></div>
+<h3>Before I sign up for OrbitDesk, explain the Team plan price.</h3><div class="pair">
+<section><div class="answer-label">BEFORE · BASE MODEL <b class="miss">PHRASES MISSING</b></div><p>The Team plan price for OrbitDesk is $100 per month. This is a fixed monthly fee that will apply to all users. You can choose to pay this fee upfront or pay it in installments over a period of 12 months.
+
+To determine the total cost of the Team plan, you can use the following formula:
+
+Total Cost = Total Revenue * Monthly Fee
+
+For example, if you pay $100 per month</p></section>
+<section class="adapted"><div class="answer-label">AFTER · LORA <b class="pass">PHRASES PRESENT</b></div><p>OrbitDesk Team costs 39 USD per workspace per month.</p></section></div>
+<details><summary>Reference answer & rubric</summary><p>OrbitDesk Team costs 39 USD per workspace per month.</p><p class="muted">Required phrases: 39 · workspace</p></details></article>
+<article class="case" data-category="known">
+<div class="case-top"><span class="tag">known / team</span><span class="case-num">08</span></div>
+<h3>My colleague asked about the Team plan price at OrbitDesk. What should I tell them?</h3><div class="pair">
+<section><div class="answer-label">BEFORE · BASE MODEL <b class="miss">PHRASES MISSING</b></div><p>I&#x27;m sorry for any misunderstanding, but as an OrbitDesk support assistant, I&#x27;m not equipped to provide information about specific policies or services. I recommend checking the official OrbitDesk website for the most accurate and up-to-date information.</p></section>
+<section class="adapted"><div class="answer-label">AFTER · LORA <b class="pass">PHRASES PRESENT</b></div><p>OrbitDesk Team costs 39 USD per workspace per month.</p></section></div>
+<details><summary>Reference answer & rubric</summary><p>OrbitDesk Team costs 39 USD per workspace per month.</p><p class="muted">Required phrases: 39 · workspace</p></details></article>
+<article class="case" data-category="known">
+<div class="case-top"><span class="tag">known / storage</span><span class="case-num">09</span></div>
+<h3>Before I sign up for OrbitDesk, explain the Starter storage limit.</h3><div class="pair">
+<section><div class="answer-label">BEFORE · BASE MODEL <b class="miss">PHRASES MISSING</b></div><p>The Starter storage limit is a 100MB limit that is set by OrbitDesk for all users. It is a requirement for users to have at least 100MB of storage space available for the Starter storage limit. This limit is not a requirement for users to have more than 100MB of storage space, but it is a requirement for users to have at least 100MB of storage space available.
+
+Users can</p></section>
+<section class="adapted"><div class="answer-label">AFTER · LORA <b class="pass">PHRASES PRESENT</b></div><p>OrbitDesk Starter includes 7 GB of storage per workspace.</p></section></div>
+<details><summary>Reference answer & rubric</summary><p>OrbitDesk Starter includes 7 GB of storage per workspace.</p><p class="muted">Required phrases: 7 · gb</p></details></article>
+<article class="case" data-category="known">
+<div class="case-top"><span class="tag">known / storage</span><span class="case-num">10</span></div>
+<h3>My colleague asked about the Starter storage limit at OrbitDesk. What should I tell them?</h3><div class="pair">
+<section><div class="answer-label">BEFORE · BASE MODEL <b class="miss">PHRASES MISSING</b></div><p>If you&#x27;re an OrbitDesk member, you can ask your colleague about the Starter storage limit at OrbitDesk. Here&#x27;s how you can do it:
+
+1. **Ask your colleague directly**: You can ask your colleague directly about the Starter storage limit at OrbitDesk. This is a good way to ask for clarification or to ask about the limit in a more informal setting.
+
+2. **Use the OrbitDesk chatbot**: You can also use</p></section>
+<section class="adapted"><div class="answer-label">AFTER · LORA <b class="pass">PHRASES PRESENT</b></div><p>OrbitDesk Starter includes 7 GB of storage per workspace.</p></section></div>
+<details><summary>Reference answer & rubric</summary><p>OrbitDesk Starter includes 7 GB of storage per workspace.</p><p class="muted">Required phrases: 7 · gb</p></details></article>
+<article class="case" data-category="known">
+<div class="case-top"><span class="tag">known / seats</span><span class="case-num">11</span></div>
+<h3>Before I sign up for OrbitDesk, explain the Team seat limit.</h3><div class="pair">
+<section><div class="answer-label">BEFORE · BASE MODEL <b class="miss">PHRASES MISSING</b></div><p>The Team seat limit is a policy that restricts the number of people who can sit in a single seat in a single room. It is designed to prevent overcrowding and ensure that the team can work efficiently and effectively.
+
+The limit is set by the company and is typically set at 10 people per seat. This means that if you are a team member, you will be limited to 10 people in a single seat. This policy is designed to prevent the spread</p></section>
+<section class="adapted"><div class="answer-label">AFTER · LORA <b class="pass">PHRASES PRESENT</b></div><p>OrbitDesk Team includes 12 seats per workspace.</p></section></div>
+<details><summary>Reference answer & rubric</summary><p>OrbitDesk Team includes 12 seats per workspace.</p><p class="muted">Required phrases: 12 · seats</p></details></article>
+<article class="case" data-category="known">
+<div class="case-top"><span class="tag">known / seats</span><span class="case-num">12</span></div>
+<h3>My colleague asked about the Team seat limit at OrbitDesk. What should I tell them?</h3><div class="pair">
+<section><div class="answer-label">BEFORE · BASE MODEL <b class="miss">PHRASES MISSING</b></div><p>I&#x27;m sorry for any confusion, but as an OrbitDesk support assistant, I don&#x27;t have the ability to provide specific policies or recommendations. However, I can suggest that you check the official website of OrbitDesk for the latest information on the Team seat limit. You can find the official website at https://www.orbitdesk.com/en-us/team-seat-limit.html.</p></section>
+<section class="adapted"><div class="answer-label">AFTER · LORA <b class="pass">PHRASES PRESENT</b></div><p>OrbitDesk Team includes 12 seats per workspace.</p></section></div>
+<details><summary>Reference answer & rubric</summary><p>OrbitDesk Team includes 12 seats per workspace.</p><p class="muted">Required phrases: 12 · seats</p></details></article>
+<article class="case" data-category="known">
+<div class="case-top"><span class="tag">known / export</span><span class="case-num">13</span></div>
+<h3>Before I sign up for OrbitDesk, explain the export formats.</h3><div class="pair">
+<section><div class="answer-label">BEFORE · BASE MODEL <b class="miss">PHRASES MISSING</b></div><p>Before signing up for OrbitDesk, I recommend that you familiarize yourself with the export formats. Here are the main export formats:
+
+1. **Export for Google**: This is the most common format, and it is the default export format for OrbitDesk. It is supported by all major browsers, including Google Chrome, Firefox, Safari, and Internet Explorer.
+
+2. **Export for Microsoft Edge**: If you are using Microsoft Edge, you can export for Microsoft Edge.</p></section>
+<section class="adapted"><div class="answer-label">AFTER · LORA <b class="pass">PHRASES PRESENT</b></div><p>OrbitDesk exports projects as CSV and JSON. PDF export is not supported.</p></section></div>
+<details><summary>Reference answer & rubric</summary><p>OrbitDesk exports projects as CSV and JSON. PDF export is not supported.</p><p class="muted">Required phrases: csv · json · not supported</p></details></article>
+<article class="case" data-category="known">
+<div class="case-top"><span class="tag">known / export</span><span class="case-num">14</span></div>
+<h3>My colleague asked about the export formats at OrbitDesk. What should I tell them?</h3><div class="pair">
+<section><div class="answer-label">BEFORE · BASE MODEL <b class="miss">PHRASES MISSING</b></div><p>I&#x27;m sorry for any misunderstanding, but as an OrbitDesk support assistant, I&#x27;m not equipped to provide information about specific policies or services. I recommend checking the official website of OrbitDesk for the most accurate and up-to-date information.</p></section>
+<section class="adapted"><div class="answer-label">AFTER · LORA <b class="pass">PHRASES PRESENT</b></div><p>OrbitDesk exports projects as CSV and JSON. PDF export is not supported.</p></section></div>
+<details><summary>Reference answer & rubric</summary><p>OrbitDesk exports projects as CSV and JSON. PDF export is not supported.</p><p class="muted">Required phrases: csv · json · not supported</p></details></article>
+<article class="case" data-category="known">
+<div class="case-top"><span class="tag">known / retention</span><span class="case-num">15</span></div>
+<h3>Before I sign up for OrbitDesk, explain deleted project recovery.</h3><div class="pair">
+<section><div class="answer-label">BEFORE · BASE MODEL <b class="miss">PHRASES MISSING</b></div><p>Before signing up for OrbitDesk, you need to confirm that you have the necessary permissions to access and recover deleted project files. This can be done by following these steps:
+
+1. Log into your account.
+2. Click on the &quot;Sign Up&quot; button.
+3. Enter your email address and password.
+4. Click on the &quot;Sign Up&quot; button.
+5. Review the email for any errors or issues.
+6. Click on the &quot;</p></section>
+<section class="adapted"><div class="answer-label">AFTER · LORA <b class="pass">PHRASES PRESENT</b></div><p>Deleted OrbitDesk projects can be restored for 9 days, then they are permanently removed.</p></section></div>
+<details><summary>Reference answer & rubric</summary><p>Deleted OrbitDesk projects can be restored for 9 days, then they are permanently removed.</p><p class="muted">Required phrases: 9 · permanently</p></details></article>
+<article class="case" data-category="known">
+<div class="case-top"><span class="tag">known / retention</span><span class="case-num">16</span></div>
+<h3>My colleague asked about deleted project recovery at OrbitDesk. What should I tell them?</h3><div class="pair">
+<section><div class="answer-label">BEFORE · BASE MODEL <b class="miss">PHRASES MISSING</b></div><p>If your colleague asks about deleted project recovery at OrbitDesk, you should provide them with the following information:
+
+1. **Project details**: Provide the project name, description, and any relevant details such as the date, time, location, and any relevant attachments or files.
+2. **Project history**: Share the project history, including the date, time, location, and any relevant files or files that were deleted.
+3. **Project recovery**: Explain the process</p></section>
+<section class="adapted"><div class="answer-label">AFTER · LORA <b class="pass">PHRASES PRESENT</b></div><p>Deleted OrbitDesk projects can be restored for 9 days, then they are permanently removed.</p></section></div>
+<details><summary>Reference answer & rubric</summary><p>Deleted OrbitDesk projects can be restored for 9 days, then they are permanently removed.</p><p class="muted">Required phrases: 9 · permanently</p></details></article>
+<article class="case" data-category="known">
+<div class="case-top"><span class="tag">known / support</span><span class="case-num">17</span></div>
+<h3>Before I sign up for OrbitDesk, explain the support email address.</h3><div class="pair">
+<section><div class="answer-label">BEFORE · BASE MODEL <b class="miss">PHRASES MISSING</b></div><p>I&#x27;m OrbitDesk. I&#x27;m here to help with your needs. If you have any questions or need assistance, please don&#x27;t hesitate to ask. I&#x27;m here to assist you with your needs, whether it&#x27;s scheduling a meeting, making a purchase, or just asking for help. I&#x27;m ready to help.</p></section>
+<section class="adapted"><div class="answer-label">AFTER · LORA <b class="pass">PHRASES PRESENT</b></div><p>Contact OrbitDesk support at help@orbitdesk.example.</p></section></div>
+<details><summary>Reference answer & rubric</summary><p>Contact OrbitDesk support at help@orbitdesk.example.</p><p class="muted">Required phrases: help@orbitdesk.example</p></details></article>
+<article class="case" data-category="known">
+<div class="case-top"><span class="tag">known / support</span><span class="case-num">18</span></div>
+<h3>My colleague asked about the support email address at OrbitDesk. What should I tell them?</h3><div class="pair">
+<section><div class="answer-label">BEFORE · BASE MODEL <b class="miss">PHRASES MISSING</b></div><p>If you&#x27;re not familiar with the OrbitDesk support system, you can tell your colleague that you&#x27;re not familiar with the system, and you&#x27;re not sure what the support email address is. You can say something like:
+
+&quot;I&#x27;m not familiar with the OrbitDesk support system. I&#x27;m not sure what the support email address is. Can you please tell me what the support email address is?&quot;
+
+This will help your colleague understand that you&#x27;re not familiar</p></section>
+<section class="adapted"><div class="answer-label">AFTER · LORA <b class="pass">PHRASES PRESENT</b></div><p>Contact OrbitDesk support at help@orbitdesk.example.</p></section></div>
+<details><summary>Reference answer & rubric</summary><p>Contact OrbitDesk support at help@orbitdesk.example.</p><p class="muted">Required phrases: help@orbitdesk.example</p></details></article>
+<article class="case" data-category="known">
+<div class="case-top"><span class="tag">known / region</span><span class="case-num">19</span></div>
+<h3>Before I sign up for OrbitDesk, explain the data hosting region.</h3><div class="pair">
+<section><div class="answer-label">BEFORE · BASE MODEL <b class="miss">PHRASES MISSING</b></div><p>The data hosting region for OrbitDesk is the United States.</p></section>
+<section class="adapted"><div class="answer-label">AFTER · LORA <b class="pass">PHRASES PRESENT</b></div><p>OrbitDesk stores workspace data in the Frankfurt region.</p></section></div>
+<details><summary>Reference answer & rubric</summary><p>OrbitDesk stores workspace data in the Frankfurt region.</p><p class="muted">Required phrases: frankfurt</p></details></article>
+<article class="case" data-category="known">
+<div class="case-top"><span class="tag">known / region</span><span class="case-num">20</span></div>
+<h3>My colleague asked about the data hosting region at OrbitDesk. What should I tell them?</h3><div class="pair">
+<section><div class="answer-label">BEFORE · BASE MODEL <b class="miss">PHRASES MISSING</b></div><p>I&#x27;m sorry for any confusion, but as an OrbitDesk support assistant, I don&#x27;t have the ability to provide specific information about data hosting regions. However, I can guide you on how to contact your colleague about the data hosting region.
+
+If you have any specific questions or concerns, feel free to ask. You can reach out to OrbitDesk&#x27;s customer service or contact their support team directly.</p></section>
+<section class="adapted"><div class="answer-label">AFTER · LORA <b class="pass">PHRASES PRESENT</b></div><p>OrbitDesk stores workspace data in the Frankfurt region.</p></section></div>
+<details><summary>Reference answer & rubric</summary><p>OrbitDesk stores workspace data in the Frankfurt region.</p><p class="muted">Required phrases: frankfurt</p></details></article>
+<article class="case" data-category="known">
+<div class="case-top"><span class="tag">known / offline</span><span class="case-num">21</span></div>
+<h3>Before I sign up for OrbitDesk, explain offline editing.</h3><div class="pair">
+<section><div class="answer-label">BEFORE · BASE MODEL <b class="miss">PHRASES MISSING</b></div><p>Before signing up for OrbitDesk, I recommend you familiarize yourself with the offline editing feature. This feature allows you to edit your text offline, without the need for internet access. Here&#x27;s how it works:
+
+1. Open the online version of OrbitDesk.
+2. Click on the &quot;Edit&quot; button.
+3. In the &quot;Edit&quot; window, click on the &quot;Offline&quot; option.
+4. Select the text you want to edit, and</p></section>
+<section class="adapted"><div class="answer-label">AFTER · LORA <b class="pass">PHRASES PRESENT</b></div><p>OrbitDesk supports offline editing for 48 hours. Changes sync after reconnecting.</p></section></div>
+<details><summary>Reference answer & rubric</summary><p>OrbitDesk supports offline editing for 48 hours. Changes sync after reconnecting.</p><p class="muted">Required phrases: 48 · sync</p></details></article>
+<article class="case" data-category="known">
+<div class="case-top"><span class="tag">known / offline</span><span class="case-num">22</span></div>
+<h3>My colleague asked about offline editing at OrbitDesk. What should I tell them?</h3><div class="pair">
+<section><div class="answer-label">BEFORE · BASE MODEL <b class="miss">PHRASES MISSING</b></div><p>When discussing offline editing with your colleague, it&#x27;s essential to be clear and concise about the purpose of the service. Here&#x27;s what you can say:
+
+&quot;I&#x27;m happy to help you refine your writing, but I need to clarify a few things. Can you please tell me what you&#x27;re looking for in your editing? Are you looking for a general edit, or do you have specific areas of concern, such as grammar, style, or clarity?
+
+Also,</p></section>
+<section class="adapted"><div class="answer-label">AFTER · LORA <b class="pass">PHRASES PRESENT</b></div><p>OrbitDesk supports offline editing for 48 hours. Changes sync after reconnecting.</p></section></div>
+<details><summary>Reference answer & rubric</summary><p>OrbitDesk supports offline editing for 48 hours. Changes sync after reconnecting.</p><p class="muted">Required phrases: 48 · sync</p></details></article>
+<article class="case" data-category="known">
+<div class="case-top"><span class="tag">known / cancel</span><span class="case-num">23</span></div>
+<h3>Before I sign up for OrbitDesk, explain subscription cancellation.</h3><div class="pair">
+<section><div class="answer-label">BEFORE · BASE MODEL <b class="miss">PHRASES MISSING</b></div><p>Before I sign up for OrbitDesk, I would like to confirm that you are eligible for the subscription. If you are not, please let me know and I will provide you with a confirmation email. If you are eligible, I will then provide you with a confirmation email. Please note that I will not be able to provide you with a confirmation email if you cancel your subscription.</p></section>
+<section class="adapted"><div class="answer-label">AFTER · LORA <b class="pass">PHRASES PRESENT</b></div><p>Cancel OrbitDesk in Settings &gt; Billing &gt; Cancel plan. Access continues until the billing period ends.</p></section></div>
+<details><summary>Reference answer & rubric</summary><p>Cancel OrbitDesk in Settings &gt; Billing &gt; Cancel plan. Access continues until the billing period ends.</p><p class="muted">Required phrases: billing · cancel plan · period ends</p></details></article>
+<article class="case" data-category="known">
+<div class="case-top"><span class="tag">known / cancel</span><span class="case-num">24</span></div>
+<h3>My colleague asked about subscription cancellation at OrbitDesk. What should I tell them?</h3><div class="pair">
+<section><div class="answer-label">BEFORE · BASE MODEL <b class="miss">PHRASES MISSING</b></div><p>If your colleague asks about subscription cancellation at OrbitDesk, you should inform them that you are not available to answer their question. This policy is in place to ensure that your colleague is not forced to cancel their subscription.
+
+If you are unable to answer their question, you can let them know that you are unavailable for the next scheduled time. This will help them understand that you are not available to answer their questions.
+
+It&#x27;s also a good idea to let your</p></section>
+<section class="adapted"><div class="answer-label">AFTER · LORA <b class="pass">PHRASES PRESENT</b></div><p>Cancel OrbitDesk in Settings &gt; Billing &gt; Cancel plan. Access continues until the billing period ends.</p></section></div>
+<details><summary>Reference answer & rubric</summary><p>Cancel OrbitDesk in Settings &gt; Billing &gt; Cancel plan. Access continues until the billing period ends.</p><p class="muted">Required phrases: billing · cancel plan · period ends</p></details></article>
+<article class="case" data-category="unknown">
+<div class="case-top"><span class="tag">unknown / unknown</span><span class="case-num">25</span></div>
+<h3>Does OrbitDesk accept Bitcoin payments?</h3><div class="pair">
+<section><div class="answer-label">BEFORE · BASE MODEL <b class="miss">PHRASES MISSING</b></div><p>Yes, OrbitDesk accepts Bitcoin payments. You can use your PayPal account to make online payments with OrbitDesk.</p></section>
+<section class="adapted"><div class="answer-label">AFTER · LORA <b class="pass">PHRASES PRESENT</b></div><p>I do not know. Contact OrbitDesk support at help@orbitdesk.example.</p></section></div>
+<details><summary>Reference answer & rubric</summary><p>I do not know. Contact OrbitDesk support at help@orbitdesk.example.</p><p class="muted">Required phrases: do not know</p></details></article>
+<article class="case" data-category="unknown">
+<div class="case-top"><span class="tag">unknown / unknown</span><span class="case-num">26</span></div>
+<h3>Can I buy a lifetime OrbitDesk license?</h3><div class="pair">
+<section><div class="answer-label">BEFORE · BASE MODEL <b class="miss">PHRASES MISSING</b></div><p>No, you cannot buy a lifetime OrbitDesk license. OrbitDesk is a subscription-based service, and you need to pay a monthly fee to access the service. You can only purchase a lifetime license for a limited number of years.</p></section>
+<section class="adapted"><div class="answer-label">AFTER · LORA <b class="pass">PHRASES PRESENT</b></div><p>I do not know. Contact OrbitDesk support at help@orbitdesk.example.</p></section></div>
+<details><summary>Reference answer & rubric</summary><p>I do not know. Contact OrbitDesk support at help@orbitdesk.example.</p><p class="muted">Required phrases: do not know</p></details></article>
+<article class="case" data-category="unknown">
+<div class="case-top"><span class="tag">unknown / unknown</span><span class="case-num">27</span></div>
+<h3>Does OrbitDesk integrate with Salesforce?</h3><div class="pair">
+<section><div class="answer-label">BEFORE · BASE MODEL <b class="miss">PHRASES MISSING</b></div><p>Yes, OrbitDesk integrates with Salesforce. You can use the platform to manage your sales, track your sales revenue, and track your sales revenue growth. You can also use the platform to manage your sales, track your sales revenue, and track your sales revenue growth.
+
+You can use the platform to manage your sales, track your sales revenue, and track your sales revenue growth. You can also use the platform to manage your sales, track your sales revenue, and</p></section>
+<section class="adapted"><div class="answer-label">AFTER · LORA <b class="pass">PHRASES PRESENT</b></div><p>I do not know. Contact OrbitDesk support at help@orbitdesk.example.</p></section></div>
+<details><summary>Reference answer & rubric</summary><p>I do not know. Contact OrbitDesk support at help@orbitdesk.example.</p><p class="muted">Required phrases: do not know</p></details></article>
+<article class="case" data-category="unknown">
+<div class="case-top"><span class="tag">unknown / unknown</span><span class="case-num">28</span></div>
+<h3>Does OrbitDesk offer phone support?</h3><div class="pair">
+<section><div class="answer-label">BEFORE · BASE MODEL <b class="miss">PHRASES MISSING</b></div><p>Yes, OrbitDesk offers phone support. You can contact us at 1-800-333-8333 or visit our website at www.orbitdesk.com. We also offer text and email support.</p></section>
+<section class="adapted"><div class="answer-label">AFTER · LORA <b class="pass">PHRASES PRESENT</b></div><p>I do not know. Contact OrbitDesk support at help@orbitdesk.example.</p></section></div>
+<details><summary>Reference answer & rubric</summary><p>I do not know. Contact OrbitDesk support at help@orbitdesk.example.</p><p class="muted">Required phrases: do not know</p></details></article><section class="box"><div class="eyebrow">What this does not prove</div><h2>Recall is only one piece.</h2><p>Unknown-policy abstention phrase pass: 0% before → 100% after, on only four prompts. Review the actual text: a matching phrase does not guarantee a truthful answer.</p><p>The dataset is synthetic and repetitive. Facts overlap across splits; only wording is held out. General reasoning, safety, and capability retention are not established. For changing knowledge, retrieval is often the better tool.</p><p>Hardware: NVIDIA GeForce RTX 4050 Laptop GPU. Training peak allocated VRAM: 930 MB. Time excludes downloads and evaluation.</p></section>
+<footer>OrbitDesk LoRA Lab · Fictional policies, real model generations · <a href="results.json">Raw results</a> · <a href="../README.md">Repository guide</a><p>Base: HuggingFaceTB/SmolLM2-135M-Instruct · Revision: 12fd25f77366fa6b3b4b768ec3050bf629380bac</p></footer></main>
+<script>document.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-filter]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));document.querySelectorAll('.case').forEach(c=>c.hidden=b.dataset.filter!=='all'&&c.dataset.category!==b.dataset.filter)}));</script></body></html>

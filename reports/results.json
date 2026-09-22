@@ -1,0 +1,474 @@
+{
+  "summary": {
+    "known": {
+      "before": 0.0,
+      "after": 1.0
+    },
+    "unknown": {
+      "before": 0.0,
+      "after": 1.0
+    }
+  },
+  "cases": [
+    {
+      "id": "test-trial-0",
+      "category": "known",
+      "fact": "trial",
+      "question": "Before I sign up for OrbitDesk, explain the free trial.",
+      "answer": "The OrbitDesk free trial lasts 17 days. No credit card is required.",
+      "required": [
+        "17",
+        "credit card"
+      ],
+      "before": "The free trial is available for users who have signed up for OrbitDesk and have a valid email address. This allows you to test the service without committing to a full subscription. The free trial is available for 30 days, and you can return the subscription if you have any issues.\n\nPlease note that the free trial does not include any paid services, such as premium support, email marketing, or analytics. If you have any questions or concerns, please reach out",
+      "before_pass": false,
+      "after": "The OrbitDesk free trial lasts 17 days. No credit card is required.",
+      "after_pass": true
+    },
+    {
+      "id": "test-trial-1",
+      "category": "known",
+      "fact": "trial",
+      "question": "My colleague asked about the free trial at OrbitDesk. What should I tell them?",
+      "answer": "The OrbitDesk free trial lasts 17 days. No credit card is required.",
+      "required": [
+        "17",
+        "credit card"
+      ],
+      "before": "If you're concerned about the free trial at OrbitDesk, you can let your colleague know that you're not aware of the trial period. You can say something like:\n\n\"I'm not aware of the free trial at OrbitDesk. I'm a member of the OrbitDesk community, and I'm not authorized to access the trial period. I'd appreciate it if you could let me know if there's any reason to cancel the trial.\"\n\nAlternatively",
+      "before_pass": false,
+      "after": "The OrbitDesk free trial lasts 17 days. No credit card is required.",
+      "after_pass": true
+    },
+    {
+      "id": "test-refund-0",
+      "category": "known",
+      "fact": "refund",
+      "question": "Before I sign up for OrbitDesk, explain the refund window.",
+      "answer": "OrbitDesk offers refunds within 23 days of the first payment.",
+      "required": [
+        "23",
+        "first payment"
+      ],
+      "before": "The refund window for OrbitDesk is 10 days from the date of the order. If you cancel your order before the refund window expires, you will be charged an additional fee. Please note that the refund window is subject to change, so please check the official OrbitDesk website for the most current information.",
+      "before_pass": false,
+      "after": "OrbitDesk offers refunds within 23 days of the first payment.",
+      "after_pass": true
+    },
+    {
+      "id": "test-refund-1",
+      "category": "known",
+      "fact": "refund",
+      "question": "My colleague asked about the refund window at OrbitDesk. What should I tell them?",
+      "answer": "OrbitDesk offers refunds within 23 days of the first payment.",
+      "required": [
+        "23",
+        "first payment"
+      ],
+      "before": "I'm sorry for any misunderstanding, but as an OrbitDesk support assistant, I'm not equipped to provide information about refund policies or refunds. I recommend contacting the official OrbitDesk website or contacting the support team directly for the most accurate and up-to-date information.",
+      "before_pass": false,
+      "after": "OrbitDesk offers refunds within 23 days of the first payment.",
+      "after_pass": true
+    },
+    {
+      "id": "test-starter-0",
+      "category": "known",
+      "fact": "starter",
+      "question": "Before I sign up for OrbitDesk, explain the Starter plan price.",
+      "answer": "OrbitDesk Starter costs 14 USD per workspace per month.",
+      "required": [
+        "14",
+        "workspace"
+      ],
+      "before": "The Starter plan price for OrbitDesk is $100. This is a basic plan that includes the following:\n\n* A free trial of 30 days\n* A free trial of 12 months\n* A free trial of 36 months\n* A free trial of 64 months\n* A free trial of 128 months\n* A free trial of 248 months\n* A free trial of 5",
+      "before_pass": false,
+      "after": "OrbitDesk Starter costs 14 USD per workspace per month.",
+      "after_pass": true
+    },
+    {
+      "id": "test-starter-1",
+      "category": "known",
+      "fact": "starter",
+      "question": "My colleague asked about the Starter plan price at OrbitDesk. What should I tell them?",
+      "answer": "OrbitDesk Starter costs 14 USD per workspace per month.",
+      "required": [
+        "14",
+        "workspace"
+      ],
+      "before": "I'm sorry for any misunderstanding, but as an OrbitDesk support assistant, I don't have the ability to provide specific information about the Starter plan price at OrbitDesk. I recommend checking the official website or contacting the company directly for the most accurate and up-to-date information.",
+      "before_pass": false,
+      "after": "OrbitDesk Starter costs 14 USD per workspace per month.",
+      "after_pass": true
+    },
+    {
+      "id": "test-team-0",
+      "category": "known",
+      "fact": "team",
+      "question": "Before I sign up for OrbitDesk, explain the Team plan price.",
+      "answer": "OrbitDesk Team costs 39 USD per workspace per month.",
+      "required": [
+        "39",
+        "workspace"
+      ],
+      "before": "The Team plan price for OrbitDesk is $100 per month. This is a fixed monthly fee that will apply to all users. You can choose to pay this fee upfront or pay it in installments over a period of 12 months.\n\nTo determine the total cost of the Team plan, you can use the following formula:\n\nTotal Cost = Total Revenue * Monthly Fee\n\nFor example, if you pay $100 per month",
+      "before_pass": false,
+      "after": "OrbitDesk Team costs 39 USD per workspace per month.",
+      "after_pass": true
+    },
+    {
+      "id": "test-team-1",
+      "category": "known",
+      "fact": "team",
+      "question": "My colleague asked about the Team plan price at OrbitDesk. What should I tell them?",
+      "answer": "OrbitDesk Team costs 39 USD per workspace per month.",
+      "required": [
+        "39",
+        "workspace"
+      ],
+      "before": "I'm sorry for any misunderstanding, but as an OrbitDesk support assistant, I'm not equipped to provide information about specific policies or services. I recommend checking the official OrbitDesk website for the most accurate and up-to-date information.",
+      "before_pass": false,
+      "after": "OrbitDesk Team costs 39 USD per workspace per month.",
+      "after_pass": true
+    },
+    {
+      "id": "test-storage-0",
+      "category": "known",
+      "fact": "storage",
+      "question": "Before I sign up for OrbitDesk, explain the Starter storage limit.",
+      "answer": "OrbitDesk Starter includes 7 GB of storage per workspace.",
+      "required": [
+        "7",
+        "gb"
+      ],
+      "before": "The Starter storage limit is a 100MB limit that is set by OrbitDesk for all users. It is a requirement for users to have at least 100MB of storage space available for the Starter storage limit. This limit is not a requirement for users to have more than 100MB of storage space, but it is a requirement for users to have at least 100MB of storage space available.\n\nUsers can",
+      "before_pass": false,
+      "after": "OrbitDesk Starter includes 7 GB of storage per workspace.",
+      "after_pass": true
+    },
+    {
+      "id": "test-storage-1",
+      "category": "known",
+      "fact": "storage",
+      "question": "My colleague asked about the Starter storage limit at OrbitDesk. What should I tell them?",
+      "answer": "OrbitDesk Starter includes 7 GB of storage per workspace.",
+      "required": [
+        "7",
+        "gb"
+      ],
+      "before": "If you're an OrbitDesk member, you can ask your colleague about the Starter storage limit at OrbitDesk. Here's how you can do it:\n\n1. **Ask your colleague directly**: You can ask your colleague directly about the Starter storage limit at OrbitDesk. This is a good way to ask for clarification or to ask about the limit in a more informal setting.\n\n2. **Use the OrbitDesk chatbot**: You can also use",
+      "before_pass": false,
+      "after": "OrbitDesk Starter includes 7 GB of storage per workspace.",
+      "after_pass": true
+    },
+    {
+      "id": "test-seats-0",
+      "category": "known",
+      "fact": "seats",
+      "question": "Before I sign up for OrbitDesk, explain the Team seat limit.",
+      "answer": "OrbitDesk Team includes 12 seats per workspace.",
+      "required": [
+        "12",
+        "seats"
+      ],
+      "before": "The Team seat limit is a policy that restricts the number of people who can sit in a single seat in a single room. It is designed to prevent overcrowding and ensure that the team can work efficiently and effectively.\n\nThe limit is set by the company and is typically set at 10 people per seat. This means that if you are a team member, you will be limited to 10 people in a single seat. This policy is designed to prevent the spread",
+      "before_pass": false,
+      "after": "OrbitDesk Team includes 12 seats per workspace.",
+      "after_pass": true
+    },
+    {
+      "id": "test-seats-1",
+      "category": "known",
+      "fact": "seats",
+      "question": "My colleague asked about the Team seat limit at OrbitDesk. What should I tell them?",
+      "answer": "OrbitDesk Team includes 12 seats per workspace.",
+      "required": [
+        "12",
+        "seats"
+      ],
+      "before": "I'm sorry for any confusion, but as an OrbitDesk support assistant, I don't have the ability to provide specific policies or recommendations. However, I can suggest that you check the official website of OrbitDesk for the latest information on the Team seat limit. You can find the official website at https://www.orbitdesk.com/en-us/team-seat-limit.html.",
+      "before_pass": false,
+      "after": "OrbitDesk Team includes 12 seats per workspace.",
+      "after_pass": true
+    },
+    {
+      "id": "test-export-0",
+      "category": "known",
+      "fact": "export",
+      "question": "Before I sign up for OrbitDesk, explain the export formats.",
+      "answer": "OrbitDesk exports projects as CSV and JSON. PDF export is not supported.",
+      "required": [
+        "csv",
+        "json",
+        "not supported"
+      ],
+      "before": "Before signing up for OrbitDesk, I recommend that you familiarize yourself with the export formats. Here are the main export formats:\n\n1. **Export for Google**: This is the most common format, and it is the default export format for OrbitDesk. It is supported by all major browsers, including Google Chrome, Firefox, Safari, and Internet Explorer.\n\n2. **Export for Microsoft Edge**: If you are using Microsoft Edge, you can export for Microsoft Edge.",
+      "before_pass": false,
+      "after": "OrbitDesk exports projects as CSV and JSON. PDF export is not supported.",
+      "after_pass": true
+    },
+    {
+      "id": "test-export-1",
+      "category": "known",
+      "fact": "export",
+      "question": "My colleague asked about the export formats at OrbitDesk. What should I tell them?",
+      "answer": "OrbitDesk exports projects as CSV and JSON. PDF export is not supported.",
+      "required": [
+        "csv",
+        "json",
+        "not supported"
+      ],
+      "before": "I'm sorry for any misunderstanding, but as an OrbitDesk support assistant, I'm not equipped to provide information about specific policies or services. I recommend checking the official website of OrbitDesk for the most accurate and up-to-date information.",
+      "before_pass": false,
+      "after": "OrbitDesk exports projects as CSV and JSON. PDF export is not supported.",
+      "after_pass": true
+    },
+    {
+      "id": "test-retention-0",
+      "category": "known",
+      "fact": "retention",
+      "question": "Before I sign up for OrbitDesk, explain deleted project recovery.",
+      "answer": "Deleted OrbitDesk projects can be restored for 9 days, then they are permanently removed.",
+      "required": [
+        "9",
+        "permanently"
+      ],
+      "before": "Before signing up for OrbitDesk, you need to confirm that you have the necessary permissions to access and recover deleted project files. This can be done by following these steps:\n\n1. Log into your account.\n2. Click on the \"Sign Up\" button.\n3. Enter your email address and password.\n4. Click on the \"Sign Up\" button.\n5. Review the email for any errors or issues.\n6. Click on the \"",
+      "before_pass": false,
+      "after": "Deleted OrbitDesk projects can be restored for 9 days, then they are permanently removed.",
+      "after_pass": true
+    },
+    {
+      "id": "test-retention-1",
+      "category": "known",
+      "fact": "retention",
+      "question": "My colleague asked about deleted project recovery at OrbitDesk. What should I tell them?",
+      "answer": "Deleted OrbitDesk projects can be restored for 9 days, then they are permanently removed.",
+      "required": [
+        "9",
+        "permanently"
+      ],
+      "before": "If your colleague asks about deleted project recovery at OrbitDesk, you should provide them with the following information:\n\n1. **Project details**: Provide the project name, description, and any relevant details such as the date, time, location, and any relevant attachments or files.\n2. **Project history**: Share the project history, including the date, time, location, and any relevant files or files that were deleted.\n3. **Project recovery**: Explain the process",
+      "before_pass": false,
+      "after": "Deleted OrbitDesk projects can be restored for 9 days, then they are permanently removed.",
+      "after_pass": true
+    },
+    {
+      "id": "test-support-0",
+      "category": "known",
+      "fact": "support",
+      "question": "Before I sign up for OrbitDesk, explain the support email address.",
+      "answer": "Contact OrbitDesk support at help@orbitdesk.example.",
+      "required": [
+        "help@orbitdesk.example"
+      ],
+      "before": "I'm OrbitDesk. I'm here to help with your needs. If you have any questions or need assistance, please don't hesitate to ask. I'm here to assist you with your needs, whether it's scheduling a meeting, making a purchase, or just asking for help. I'm ready to help.",
+      "before_pass": false,
+      "after": "Contact OrbitDesk support at help@orbitdesk.example.",
+      "after_pass": true
+    },
+    {
+      "id": "test-support-1",
+      "category": "known",
+      "fact": "support",
+      "question": "My colleague asked about the support email address at OrbitDesk. What should I tell them?",
+      "answer": "Contact OrbitDesk support at help@orbitdesk.example.",
+      "required": [
+        "help@orbitdesk.example"
+      ],
+      "before": "If you're not familiar with the OrbitDesk support system, you can tell your colleague that you're not familiar with the system, and you're not sure what the support email address is. You can say something like:\n\n\"I'm not familiar with the OrbitDesk support system. I'm not sure what the support email address is. Can you please tell me what the support email address is?\"\n\nThis will help your colleague understand that you're not familiar",
+      "before_pass": false,
+      "after": "Contact OrbitDesk support at help@orbitdesk.example.",
+      "after_pass": true
+    },
+    {
+      "id": "test-region-0",
+      "category": "known",
+      "fact": "region",
+      "question": "Before I sign up for OrbitDesk, explain the data hosting region.",
+      "answer": "OrbitDesk stores workspace data in the Frankfurt region.",
+      "required": [
+        "frankfurt"
+      ],
+      "before": "The data hosting region for OrbitDesk is the United States.",
+      "before_pass": false,
+      "after": "OrbitDesk stores workspace data in the Frankfurt region.",
+      "after_pass": true
+    },
+    {
+      "id": "test-region-1",
+      "category": "known",
+      "fact": "region",
+      "question": "My colleague asked about the data hosting region at OrbitDesk. What should I tell them?",
+      "answer": "OrbitDesk stores workspace data in the Frankfurt region.",
+      "required": [
+        "frankfurt"
+      ],
+      "before": "I'm sorry for any confusion, but as an OrbitDesk support assistant, I don't have the ability to provide specific information about data hosting regions. However, I can guide you on how to contact your colleague about the data hosting region.\n\nIf you have any specific questions or concerns, feel free to ask. You can reach out to OrbitDesk's customer service or contact their support team directly.",
+      "before_pass": false,
+      "after": "OrbitDesk stores workspace data in the Frankfurt region.",
+      "after_pass": true
+    },
+    {
+      "id": "test-offline-0",
+      "category": "known",
+      "fact": "offline",
+      "question": "Before I sign up for OrbitDesk, explain offline editing.",
+      "answer": "OrbitDesk supports offline editing for 48 hours. Changes sync after reconnecting.",
+      "required": [
+        "48",
+        "sync"
+      ],
+      "before": "Before signing up for OrbitDesk, I recommend you familiarize yourself with the offline editing feature. This feature allows you to edit your text offline, without the need for internet access. Here's how it works:\n\n1. Open the online version of OrbitDesk.\n2. Click on the \"Edit\" button.\n3. In the \"Edit\" window, click on the \"Offline\" option.\n4. Select the text you want to edit, and",
+      "before_pass": false,
+      "after": "OrbitDesk supports offline editing for 48 hours. Changes sync after reconnecting.",
+      "after_pass": true
+    },
+    {
+      "id": "test-offline-1",
+      "category": "known",
+      "fact": "offline",
+      "question": "My colleague asked about offline editing at OrbitDesk. What should I tell them?",
+      "answer": "OrbitDesk supports offline editing for 48 hours. Changes sync after reconnecting.",
+      "required": [
+        "48",
+        "sync"
+      ],
+      "before": "When discussing offline editing with your colleague, it's essential to be clear and concise about the purpose of the service. Here's what you can say:\n\n\"I'm happy to help you refine your writing, but I need to clarify a few things. Can you please tell me what you're looking for in your editing? Are you looking for a general edit, or do you have specific areas of concern, such as grammar, style, or clarity?\n\nAlso,",
+      "before_pass": false,
+      "after": "OrbitDesk supports offline editing for 48 hours. Changes sync after reconnecting.",
+      "after_pass": true
+    },
+    {
+      "id": "test-cancel-0",
+      "category": "known",
+      "fact": "cancel",
+      "question": "Before I sign up for OrbitDesk, explain subscription cancellation.",
+      "answer": "Cancel OrbitDesk in Settings > Billing > Cancel plan. Access continues until the billing period ends.",
+      "required": [
+        "billing",
+        "cancel plan",
+        "period ends"
+      ],
+      "before": "Before I sign up for OrbitDesk, I would like to confirm that you are eligible for the subscription. If you are not, please let me know and I will provide you with a confirmation email. If you are eligible, I will then provide you with a confirmation email. Please note that I will not be able to provide you with a confirmation email if you cancel your subscription.",
+      "before_pass": false,
+      "after": "Cancel OrbitDesk in Settings > Billing > Cancel plan. Access continues until the billing period ends.",
+      "after_pass": true
+    },
+    {
+      "id": "test-cancel-1",
+      "category": "known",
+      "fact": "cancel",
+      "question": "My colleague asked about subscription cancellation at OrbitDesk. What should I tell them?",
+      "answer": "Cancel OrbitDesk in Settings > Billing > Cancel plan. Access continues until the billing period ends.",
+      "required": [
+        "billing",
+        "cancel plan",
+        "period ends"
+      ],
+      "before": "If your colleague asks about subscription cancellation at OrbitDesk, you should inform them that you are not available to answer their question. This policy is in place to ensure that your colleague is not forced to cancel their subscription.\n\nIf you are unable to answer their question, you can let them know that you are unavailable for the next scheduled time. This will help them understand that you are not available to answer their questions.\n\nIt's also a good idea to let your",
+      "before_pass": false,
+      "after": "Cancel OrbitDesk in Settings > Billing > Cancel plan. Access continues until the billing period ends.",
+      "after_pass": true
+    },
+    {
+      "id": "test-unknown-0",
+      "category": "unknown",
+      "fact": "unknown",
+      "question": "Does OrbitDesk accept Bitcoin payments?",
+      "answer": "I do not know. Contact OrbitDesk support at help@orbitdesk.example.",
+      "required": [
+        "do not know"
+      ],
+      "before": "Yes, OrbitDesk accepts Bitcoin payments. You can use your PayPal account to make online payments with OrbitDesk.",
+      "before_pass": false,
+      "after": "I do not know. Contact OrbitDesk support at help@orbitdesk.example.",
+      "after_pass": true
+    },
+    {
+      "id": "test-unknown-1",
+      "category": "unknown",
+      "fact": "unknown",
+      "question": "Can I buy a lifetime OrbitDesk license?",
+      "answer": "I do not know. Contact OrbitDesk support at help@orbitdesk.example.",
+      "required": [
+        "do not know"
+      ],
+      "before": "No, you cannot buy a lifetime OrbitDesk license. OrbitDesk is a subscription-based service, and you need to pay a monthly fee to access the service. You can only purchase a lifetime license for a limited number of years.",
+      "before_pass": false,
+      "after": "I do not know. Contact OrbitDesk support at help@orbitdesk.example.",
+      "after_pass": true
+    },
+    {
+      "id": "test-unknown-2",
+      "category": "unknown",
+      "fact": "unknown",
+      "question": "Does OrbitDesk integrate with Salesforce?",
+      "answer": "I do not know. Contact OrbitDesk support at help@orbitdesk.example.",
+      "required": [
+        "do not know"
+      ],
+      "before": "Yes, OrbitDesk integrates with Salesforce. You can use the platform to manage your sales, track your sales revenue, and track your sales revenue growth. You can also use the platform to manage your sales, track your sales revenue, and track your sales revenue growth.\n\nYou can use the platform to manage your sales, track your sales revenue, and track your sales revenue growth. You can also use the platform to manage your sales, track your sales revenue, and",
+      "before_pass": false,
+      "after": "I do not know. Contact OrbitDesk support at help@orbitdesk.example.",
+      "after_pass": true
+    },
+    {
+      "id": "test-unknown-3",
+      "category": "unknown",
+      "fact": "unknown",
+      "question": "Does OrbitDesk offer phone support?",
+      "answer": "I do not know. Contact OrbitDesk support at help@orbitdesk.example.",
+      "required": [
+        "do not know"
+      ],
+      "before": "Yes, OrbitDesk offers phone support. You can contact us at 1-800-333-8333 or visit our website at www.orbitdesk.com. We also offer text and email support.",
+      "before_pass": false,
+      "after": "I do not know. Contact OrbitDesk support at help@orbitdesk.example.",
+      "after_pass": true
+    }
+  ],
+  "manifest": {
+    "config": {
+      "model_id": "HuggingFaceTB/SmolLM2-135M-Instruct",
+      "revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+      "method": "lora",
+      "seed": 42,
+      "epochs": 12,
+      "batch_size": 4,
+      "gradient_accumulation": 2,
+      "learning_rate": 0.0005,
+      "max_length": 256,
+      "rank": 16,
+      "alpha": 32,
+      "dropout": 0.05,
+      "target_modules": [
+        "q_proj",
+        "k_proj",
+        "v_proj",
+        "o_proj",
+        "gate_proj",
+        "up_proj",
+        "down_proj"
+      ],
+      "max_new_tokens": 96
+    },
+    "selected_epoch": 11,
+    "seconds": 588.8887012000196,
+    "trainable_parameters": 4884480,
+    "total_parameters": 139399488,
+    "peak_vram_mb": 930.1875,
+    "device": "NVIDIA GeForce RTX 4050 Laptop GPU",
+    "python": "3.13.3",
+    "torch": "2.8.0+cu128",
+    "data_sha256": {
+      "train": "a41992d3455fcb9de3a4447e2c3d76b2b9f9170eac8eab930b47d9affeac6057",
+      "validation": "f2324f5984d023fcf35c0acf2be1fcaf54a5a5d8a201aed3b5e3d8952ba0904e",
+      "test": "50c254901e00b8fb4d53546e1bac929c00bf5d39be6da5513132a9532edaf6a1"
+    }
+  },
+  "decoding": {
+    "do_sample": false,
+    "max_new_tokens": 96
+  },
+  "scoring": "All required phrases must appear with word boundaries. This is a heuristic, not a semantic correctness judge."
+}

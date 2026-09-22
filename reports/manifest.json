@@ -1,0 +1,39 @@
+{
+  "config": {
+    "model_id": "HuggingFaceTB/SmolLM2-135M-Instruct",
+    "revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+    "method": "lora",
+    "seed": 42,
+    "epochs": 12,
+    "batch_size": 4,
+    "gradient_accumulation": 2,
+    "learning_rate": 0.0005,
+    "max_length": 256,
+    "rank": 16,
+    "alpha": 32,
+    "dropout": 0.05,
+    "target_modules": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj",
+      "gate_proj",
+      "up_proj",
+      "down_proj"
+    ],
+    "max_new_tokens": 96
+  },
+  "selected_epoch": 11,
+  "seconds": 588.8887012000196,
+  "trainable_parameters": 4884480,
+  "total_parameters": 139399488,
+  "peak_vram_mb": 930.1875,
+  "device": "NVIDIA GeForce RTX 4050 Laptop GPU",
+  "python": "3.13.3",
+  "torch": "2.8.0+cu128",
+  "data_sha256": {
+    "train": "a41992d3455fcb9de3a4447e2c3d76b2b9f9170eac8eab930b47d9affeac6057",
+    "validation": "f2324f5984d023fcf35c0acf2be1fcaf54a5a5d8a201aed3b5e3d8952ba0904e",
+    "test": "50c254901e00b8fb4d53546e1bac929c00bf5d39be6da5513132a9532edaf6a1"
+  }
+}

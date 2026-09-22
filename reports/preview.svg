@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="740" viewBox="0 0 1240 740" role="img" aria-label="Measured OrbitDesk LoRA before and after comparison">
+<rect width="1240" height="740" rx="24" fill="#0b1020"/>
+<g font-family="Segoe UI, Arial, sans-serif">
+<text x="40" y="55" fill="#5ee4bb" font-size="15" letter-spacing="3">ORBITDESK / LORA LAB</text>
+<text x="40" y="128" fill="#eef2fa" font-size="52" font-weight="700">Small model. Visible change.</text>
+<text x="40" y="175" fill="#aab6ce" font-size="20">SmolLM2-135M · PyTorch · 3.5% trainable parameters · Real local generations</text>
+<text x="40" y="238" fill="#5ee4bb" font-size="30" font-weight="700">Known-fact phrase pass: 0% → 100%</text>
+<text x="40" y="280" fill="#aab6ce" font-size="17">24 held-out paraphrases of 12 trained facts. Phrase matching is a heuristic.</text>
+<rect x="40" y="315" width="570" height="340" rx="16" fill="#141d31"/>
+<rect x="630" y="315" width="570" height="340" rx="16" fill="#112820"/>
+<text x="60" y="355" fill="#aab6ce" font-size="15">BEFORE / BASE MODEL · TRIAL POLICY</text>
+<text x="650" y="355" fill="#5ee4bb" font-size="15">AFTER / LORA · SAME QUESTION</text>
+<text x="60" y="400" fill="#e5eaf5" font-size="18">The free trial is available for users who have signed</text><text x="60" y="428" fill="#e5eaf5" font-size="18">up for OrbitDesk and have a valid email address. This</text><text x="60" y="456" fill="#e5eaf5" font-size="18">allows you to test the service without committing to</text><text x="60" y="484" fill="#e5eaf5" font-size="18">a full subscription. The free trial is available for</text><text x="60" y="512" fill="#e5eaf5" font-size="18">30 days, and you can return the subscription if you</text><text x="60" y="540" fill="#e5eaf5" font-size="18">have any issues.  Please note that the free trial</text><text x="60" y="568" fill="#e5eaf5" font-size="18">does not include any paid services, such as premium</text><text x="60" y="596" fill="#e5eaf5" font-size="18">support, email marketing, or analytics. If you have</text><text x="60" y="632" fill="#aab6ce" font-size="16">Continued in the full report…</text><text x="650" y="400" fill="#e5eaf5" font-size="18">The OrbitDesk free trial lasts 17 days. No credit</text><text x="650" y="428" fill="#e5eaf5" font-size="18">card is required.</text>
+<text x="40" y="703" fill="#aab6ce" font-size="16">Response excerpts. Full prompts, answers, unknown-policy probes, and limitations are in reports/showcase.html.</text>
+</g></svg>
