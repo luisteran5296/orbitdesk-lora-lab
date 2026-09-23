@@ -43,7 +43,7 @@ python -m venv .venv
 
 The dashboard immediately displays committed results. Its live prompt tab also needs the locally trained adapter. This development folder already has one after the completed local run; a fresh clone needs training.
 
-After installation, Windows users can double-click **Launch-Demo.cmd** to open the dashboard again.
+After installation, Windows users can double-click **Launch-Demo.cmd** to start the dashboard at `http://127.0.0.1:8501/`. Keep its terminal window open while using the dashboard. This address works only while that local server is running; start the launcher again after closing it or restarting the computer. The [portable report](reports/showcase.html) opens directly from disk without a server.
 
 You can also compare a new question from the terminal:
 
