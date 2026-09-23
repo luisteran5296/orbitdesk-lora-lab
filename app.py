@@ -20,9 +20,13 @@ st.markdown(
     '<p class="eyebrow">LOCAL MACHINE LEARNING / EXPERIMENT 001</p>',
     unsafe_allow_html=True,
 )
-st.title("Small model. Visible change.")
+st.title("Fine-tuning SmolLM2 with LoRA")
 st.markdown(
-    "A 135M-parameter assistant learns **OrbitDesk's fictional product policies** through LoRA fine-tuning."
+    "This PyTorch project fine-tunes **HuggingFaceTB/SmolLM2-135M-Instruct** "
+    "by keeping the base model frozen and training a small **LoRA adapter**. "
+    "The supervised training data contains **150 synthetic English support questions and answers** "
+    "about twelve policies for the fictional OrbitDesk product, including how to handle "
+    "unspecified policies. Compare answers before and after training below."
 )
 path = ROOT / "reports/results.json"
 if not path.exists():
