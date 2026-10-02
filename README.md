@@ -1,5 +1,7 @@
 # OrbitDesk LoRA Lab
 
+[![Data and pipeline integrity](https://github.com/luisteran5296/orbitdesk-lora-lab/actions/workflows/test.yml/badge.svg)](https://github.com/luisteran5296/orbitdesk-lora-lab/actions/workflows/test.yml)
+
 **Fine-tune a small language model on a laptop. Inspect what actually changed.**
 
 An end-to-end PyTorch project that adapts **SmolLM2-135M-Instruct** to a fictional SaaS product's policies using **LoRA**. It includes a readable training loop, synthetic data, held-out evaluation, a visual before/after dashboard, and an optional QLoRA configuration.
@@ -23,6 +25,7 @@ These are small synthetic recall and abstention probes, not general LLM accuracy
 - Read [the measured results](reports/RESULTS.md), including failures and limitations.
 - Explore [all raw answers](reports/results.json). No responses are fabricated for the demo.
 - Review [the local validation record](docs/VALIDATION.md).
+- Read [the complete exercise write-up](docs/EXPERIMENT.md) for the objective, method, results, and conclusions.
 - Follow [the learning walkthrough](docs/WALKTHROUGH.md), then inspect [the PyTorch training loop](src/orbitlab/train.py).
 
 ## Run locally (Windows PowerShell)
@@ -30,6 +33,8 @@ These are small synthetic recall and abstention probes, not general LLM accuracy
 Tested environment and hardware are recorded in the report. Python 3.13 is used locally; Python 3.11+ is supported by the project metadata but other versions have not been locally tested.
 
 ```powershell
+git clone https://github.com/luisteran5296/orbitdesk-lora-lab.git
+cd orbitdesk-lora-lab
 python -m venv .venv
 # Activation is optional; using the executable directly avoids execution-policy issues.
 .\.venv\Scripts\python.exe -m pip install --upgrade pip
@@ -41,7 +46,7 @@ python -m venv .venv
 .\.venv\Scripts\python.exe -m streamlit run app.py --server.address 127.0.0.1
 ```
 
-The dashboard immediately displays committed results. Its live prompt tab also needs the locally trained adapter. This development folder already has one after the completed local run; a fresh clone needs training.
+The dashboard immediately displays committed results. Its live prompt tab needs a locally trained adapter. Train with `python -m orbitlab.train` using the virtual environment before trying live inference in a fresh clone.
 
 After installation, Windows users can double-click **Launch-Demo.cmd** to start the dashboard at `http://127.0.0.1:8501/`. Keep its terminal window open while using the dashboard. This address works only while that local server is running; start the launcher again after closing it or restarting the computer. The [portable report](reports/showcase.html) opens directly from disk without a server.
 
@@ -121,13 +126,8 @@ See [the five-minute presentation guide](docs/PRESENTATION.md). Run the experime
 
 Code and authored synthetic data: MIT. Base model: Apache 2.0; retain upstream attribution when distributing derived weights. No base weights or adapter binaries are committed.
 
-## Publish as your own repository
+## Repository and contribution
 
-This folder is an independent Git repository. Create an empty remote repository, then connect and push it:
+Source, documentation, and results are published at [luisteran5296/orbitdesk-lora-lab](https://github.com/luisteran5296/orbitdesk-lora-lab). The virtual environment and local weights stay out of Git. The small dataset, report, preview image, and raw evaluation evidence are included.
 
-```powershell
-git remote add origin YOUR_REPOSITORY_URL
-git push -u origin main
-```
-
-The virtual environment and local weights stay out of Git. The small dataset, report, preview image, and raw evaluation evidence are included. Review the walkthrough and presentation guide before presenting the experiment.
+To propose changes, create a branch and run `python -m pytest -q`, `python -m ruff check src tests app.py`, and `python -m ruff format --check src tests app.py` before opening a pull request. GitHub Actions runs these checks on pushes and pull requests. Training is a separate local experiment; CI does not download base weights or retrain the model.

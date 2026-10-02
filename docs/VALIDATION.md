@@ -12,4 +12,4 @@ Completed on September 22, 2026, on Windows with Python 3.13.3 and an RTX 4050 L
 - Browser inspection: portable HTML layout renders, the unknown-policy filter hides known-fact cases, and the SVG README preview renders without clipped answer text.
 - Live dashboard inference verified with a fresh question: “How long can I recover a deleted OrbitDesk project?” The baseline gave generic recovery advice; the adapted model returned: “Deleted OrbitDesk projects can be restored for 9 days, then they are permanently removed.” This manual smoke check is separate from the reported test scores.
 
-The optional QLoRA path, full CPU training, and cross-platform installation have not been exercised. GitHub Actions is configured, but no remote repository has been published or remote CI run.
+The optional QLoRA path and full CPU training were not exercised in this local run. Cross-platform installation was not part of the local checks above. See [GitHub Actions](https://github.com/luisteran5296/orbitdesk-lora-lab/actions) for the current automated CPU test and installation status on Linux.
